@@ -1,0 +1,32 @@
+{
+  "name": "xrpl-cirp",
+  "version": "1.0.0",
+  "description": "Cirp token on xrpl",
+  "main": "index.js",
+  "author": "pixelplex.io",
+  "license": "MIT",
+  "scripts": {
+    "serve": "webpack-dev-server --mode development",
+    "build": "yarn run clean:build && ttsc --build",
+    "build:webpack": "yarn run clean:build && yarn webpack"
+  },
+  "devDependencies": {
+    "@babel/runtime": "^7.17.9",
+    "@zerollup/ts-transform-paths": "^1.7.18",
+    "crypto-browserify": "^3.12.0",
+    "https-browserify": "^1.0.0",
+    "os-browserify": "^0.3.0",
+    "prettier": "^2.6.2",
+    "process": "^0.11.10",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "ts-loader": "^9.3.0",
+    "typescript": "^4.6.4",
+    "webpack": "^5.42.1",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.9.0"
+  },
+  "dependencies": {
+    "xrpl": "^2.2.3"
+  }
+}

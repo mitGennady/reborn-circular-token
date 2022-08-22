@@ -1,0 +1,183 @@
+<head>
+  <script src="https://unpkg.com/xrpl@2.0.0/build/xrpl-latest-min.js"></script>
+  <script src="./scripts.js"></script>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <h1>Token Creator XRPL</h1>
+
+  <img id="qrCode" />
+  <div>
+    <h3>Connector</h3>
+    <button id="connector">Connect to XRPL</button>
+    <button id="disconnector">Disconnect to XRPL</button>
+
+    <select id="connector_select">
+      <option value="1">testnet</option>
+      <option value="0">mainnet</option>
+    </select>
+    <span id="status-connector"></span>
+    <hr style="margin-top: 40px;">
+  </div>
+
+  <div style="margin-top: 20px;">
+    <h3>Generate accounts</h3>
+    <div>
+      <span>Amount accounts</span>
+    </div>
+    <div>
+      <input placeholder="default: 2"  id="count-accounts"></input>
+    </div>
+    <button id="generator">Generate Accounts</button>
+    <hr>
+    <div style="margin-top: 20px;" id="generated-accounts">
+    </div>
+    <hr style="margin-top: 40px;">
+  </div>
+
+  <div style="margin-top: 20px;">
+    <h3>Configure Issuer Settings</h3>
+
+    <div>
+      <span>Transfer Fee (%)</span>
+    </div>
+    <div>
+      <Input placeholder="default: 0" style="margin-bottom: 20px;" id="transfer-rate"></Input>
+    </div>
+    <div>
+      <span>Tick Size</span>
+    </div>
+    <div>
+      <Input placeholder="default: 5" style="margin-bottom: 20px;" id="tick-size"></Input>
+    </div>
+    <div>
+      <span>Domain</span>
+    </div>
+    <div>
+      <Input placeholder="default: undefined" style="margin-bottom: 20px;" id="domain"></Input>
+      <span> Hex string: </span>
+      <span id="domain-hex"></span>
+    </div>
+    <div>
+      <span>Private key issuer</span>
+    </div>
+    <div>
+      <input placeholder="key"  id="secret-key-issuer"></input>
+    </div>
+
+    <button id="issuer">Setting issuer</button>
+    <div style="margin-top: 20px;" id="tx-issuer"></div>
+    <hr style="margin-top: 40px;">
+  </div>
+
+  <div style="margin-top: 20px;">
+    <h3>Configure Hot Address Settings</h3>
+    <div>
+      <span>Domain</span>
+    </div>
+    <div>
+      <Input placeholder="default: undefined" style="margin-bottom: 20px;" id="domain-hot"></Input>
+      <span> Hex string: </span>
+      <span id="domain-hex-hot"></span>
+    </div>
+    <div>
+      <span>Private key hot address</span>
+    </div>
+    <div>
+      <input placeholder="key"  id="secret-key-hot"></input>
+    </div>
+
+    <button id="hot" >Setting hot address</button>
+    <div style="margin-top: 20px;" id="tx-hot"></div>
+    <hr style="margin-top: 40px;">
+  </div>
+
+  <div style="margin-top: 20px;">
+    <h3>Trust Line Hot to Cold</h3>
+    <div>
+      <span>Hot private key</span>
+    </div>
+    <div>
+      <Input placeholder="key" style="margin-bottom: 20px;" id="hot-key-trust-line"></Input>
+    </div>
+    <div>
+      <span>Issuer private key</span>
+    </div>
+    <div>
+      <Input placeholder="key" style="margin-bottom: 20px;" id="cold-trust-line"></Input>
+    </div>
+    <div>
+      <span>Currency code</span>
+    </div>
+    <div>
+      <Input placeholder="default: $CIRP" style="margin-bottom: 20px;" id="trust-line-currency-code"></Input>
+      <span> Display token: </span>
+      <span id="trust-line-currency-hex-code"></span>
+    </div>
+    <div>
+      <span>Limit</span>
+    </div>
+    <div>
+      <Input placeholder="default: 10000000000" style="margin-bottom: 20px;" id="trust-line-limit"></Input>
+    </div>
+
+    <button id="trust-line-hot-to-cold">Set trust line</button>
+    <div style="margin-top: 20px;" id="tx-trust-line"></div>
+    <hr style="margin-top: 40px;">
+  </div>
+
+  <div style="margin-top: 20px;">
+    <h3>Send token</h3>
+    <div>
+      <span>Hot private key</span>
+    </div>
+    <div>
+      <Input placeholder="key" style="margin-bottom: 20px;" id="hot-key-send-token"></Input>
+    </div>
+    <div>
+      <span>Issuer private key</span>
+    </div>
+    <div>
+      <Input placeholder="key" style="margin-bottom: 20px;" id="cold-key-send-token"></Input>
+    </div>
+    <div>
+      <span>Currency code</span>
+    </div>
+    <div>
+      <Input placeholder="code" style="margin-bottom: 20px;" id="send-token-code"></Input>
+      <span> Display token: </span>
+      <span id="send-token-hex-code"></span>
+    </div>
+    <div>
+      <span>Quontity</span>
+    </div>
+    <div>
+      <Input placeholder="default: 10000000000" style="margin-bottom: 20px;" id="send-token-limit"></Input>
+    </div>
+
+    <button id="send-token-hot-to-cold">Send token</button>
+    <div style="margin-top: 20px;" id="tx-send-token"></div>
+    <hr style="margin-top: 40px;">
+  </div>
+
+  <div style="margin-top: 20px;">
+    <h3>Validate token balances</h3>
+    <div>
+      <span>Hot private key</span>
+    </div>
+    <div>
+      <Input placeholder="key" style="margin-bottom: 20px;" id="hot-key-validate"></Input>
+    </div>
+    <div>
+      <span>Issuer private key</span>
+    </div>
+    <div>
+      <Input placeholder="key" style="margin-bottom: 20px;" id="cold-key-validate"></Input>
+    </div>
+
+    <button id="validate" style="padding: 10px;">Validate</button>
+    <div style="margin-top: 20px;" id="validate-data"></div>
+    <hr style="margin-top: 40px;">
+  </div>
+
+</body>

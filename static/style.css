@@ -1,0 +1,61 @@
+button {
+  -webkit-writing-mode: horizontal-tb !important;
+  -webkit-appearance: button;
+  border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
+  border-style: solid;
+  border-width: 1px;
+  padding: 1px 7px 2px;
+  text-rendering: auto;
+  color: initial;
+  display: inline-block;
+  text-align: start;
+  margin: 0em;
+  font: 400 11px system-ui;
+  height: 40px;
+  font-size: 13px;
+  margin-top: 20px;
+}
+
+button:hover {
+  background: #babcbf;
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px #cbd6ee;
+}
+
+input {
+  height: 26px;
+
+  border: 1px solid green;
+  border-radius: 6px;
+}
+
+input:focus {
+  background-color: lightblue;
+}
+
+hr{
+  height: 2px;
+  background-color: aqua;
+}
+
+select {
+  background-color:aquamarine;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 200px;
+  height: 33px;
+  font-family: inherit;
+  font-size: 18px;
+}
+
+select {
+  grid-template-areas: "select";
+}
+
+select
+:after {
+  grid-area: select;
+}
